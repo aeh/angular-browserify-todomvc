@@ -7,8 +7,9 @@ This is a copy of the AngularJS TodoMVC example (https://github.com/tastejs/todo
 * Use Napa (https://github.com/shama/napa) to install Bower components with npm install
 * Test cases working through protractor with the Mocha framework
 * Build with Gulp
+* Test with Travis CI
 
 Still to do...
 
-* Test with TravisCI / Saucelabs
+* Add multi-browser testing with SauceLabs
 * Get it to build and run on Heroku
