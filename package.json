@@ -3,7 +3,7 @@
   "version": "0.0.1",
   "scripts": {
     "install": "napa",
-    "test": "gulp test"
+    "test": "./node_modules/gulp/bin/gulp.js test"
   },
   "devDependencies": {
     "connect-livereload": "~0.4.0",
