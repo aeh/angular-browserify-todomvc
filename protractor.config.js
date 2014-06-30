@@ -1,4 +1,4 @@
-exports.config = {
+var config = {
   specs: ['test/**/*.js'],
   framework: 'mocha',
   mochaOpts: {
@@ -6,6 +6,19 @@ exports.config = {
     slow: 3000
   },
   capabilities: {
-    'browserName': 'chrome'
+    'browserName': 'chrome',
   }
+}
+
+if (process.env.TRAVIS === 'true') {
+  config.sauceUser = process.env.SAUCE_USERNAME,
+  config.sauceKey = process.env.SAUCE_ACCESS_KEY,
+  config.capabilitied = {
+    'browserName': 'chrome',
+    'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
+    'build': process.env.TRAVIS_BUILD_NUMBER,
+    'name': 'Angular TodoMVC Tests'
+  };
 };
+
+exports.config = config;
