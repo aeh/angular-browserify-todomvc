@@ -17,7 +17,7 @@ if (process.env.TRAVIS_BUILD_NUMBER) {
     'browserName': 'chrome',
     'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
     'build': process.env.TRAVIS_BUILD_NUMBER,
-    'name': 'Angular TodoMVC Tests / Travis Build ' + process.env.TRAVIS_BUILD_NUMBER
+    'name': 'Angular TodoMVC Travis Tests'
   };
 };
 
