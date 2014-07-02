@@ -9,4 +9,4 @@ env:
     - secure: zeQZ2MDMxb9ndCOd3bEEb7tgvZOw8SKHCF7hHUWqAZ9h6cGXZ7BhAv8PlonYuuxZAJM5ITrJZ4P7IJjqEDhrNxORDWhfjmiWiD/86VV34Wmb9/mbRt5Uhf0OSKbcnKZD7qxm1pX/VST1FOYIWYAOftm5BesDuLF6xdSNFKf1oNc=
 
 before_script:
-  - ./bin/sauce_connect_setup.sh
+  - sh ./bin/sauce_connect_setup.sh
