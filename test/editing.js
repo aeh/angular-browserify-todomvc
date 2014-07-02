@@ -19,7 +19,7 @@ describe('Editing', function() {
     page.enterItems(todoItems);
     page.doubleClickItemAtIndex(1);
 
-    page.editItemAtIndex(1, 'buy some sausages' + protractor.Key.ENTER);
+    page.editItemAtIndex(1, 'buy some sausages' + protractor.Key.RETURN);
 
     page.getItemsMap(function(item) { return item.getText(); }).then(function(items) {
       expect(items.length).to.be.equal(todoItems.length);
@@ -46,7 +46,7 @@ describe('Editing', function() {
     page.enterItems(todoItems);
     page.doubleClickItemAtIndex(1);
 
-    page.editItemAtIndex(1, '   buy some sausages  ' + protractor.Key.ENTER);
+    page.editItemAtIndex(1, '   buy some sausages  ' + protractor.Key.RETURN);
 
     page.getItemsMap(function(item) { return item.getText(); }).then(function(items) {
       expect(items.length).to.be.equal(todoItems.length);
@@ -58,7 +58,7 @@ describe('Editing', function() {
     page.enterItems(todoItems);
     page.doubleClickItemAtIndex(1);
 
-    page.editItemAtIndex(1, protractor.Key.ENTER);
+    page.editItemAtIndex(1, protractor.Key.RETURN);
 
     page.getItemsMap(function(item) { return item.getText(); }).then(function(items) {
       expect(items.length).to.be.equal(todoItems.length - 1);

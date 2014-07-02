@@ -50,7 +50,7 @@ var page = module.exports = {
   },
 
   enterItem: function(todo) {
-    page.getItemInputField().sendKeys(todo + protractor.Key.ENTER);
+    page.getItemInputField().sendKeys(todo + protractor.Key.RETURN);
   },
   enterItems: function(todos) {
     todos.forEach(function(todo) {
