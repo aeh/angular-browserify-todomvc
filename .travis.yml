@@ -7,7 +7,6 @@ env:
     - TEST_PORT=9000
     - secure: W42A77yk9eRfgcFvIZXEZebBrVFpZkgh7GIzGaviFIDoB19mn/hU2vgz0dEzEynfIpwCdOG2PFJXDtg72pJfE9m31q5zNw3+dVrQwk0eKer7yvfKUJERUCxti80yKaDaOMptPqV8+Wr/mvhLVg+pKGJosmJL8NAM3CU/uEjGs9c=
     - secure: zeQZ2MDMxb9ndCOd3bEEb7tgvZOw8SKHCF7hHUWqAZ9h6cGXZ7BhAv8PlonYuuxZAJM5ITrJZ4P7IJjqEDhrNxORDWhfjmiWiD/86VV34Wmb9/mbRt5Uhf0OSKbcnKZD7qxm1pX/VST1FOYIWYAOftm5BesDuLF6xdSNFKf1oNc=
-    - BROWSER_PROVIDER_READY_FILE=/tmp/sauce-connect-ready
 
 before_script:
   - bash ./bin/sauce_connect_setup.sh
