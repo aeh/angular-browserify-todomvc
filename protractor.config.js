@@ -18,7 +18,7 @@ if (process.env.TRAVIS_BUILD_NUMBER) {
     'platform': 'OS X 10.9',
     'tunnel-identifier': process.env.TRAVIS_JOB_NUMBER,
     'build': process.env.TRAVIS_BUILD_NUMBER,
-    'name': 'Angular TodoMVC Travis Tests'
+    'name': 'Angular TodoMVC Tests'
   };
 };
 
