@@ -23,7 +23,6 @@ curl $CONNECT_URL > $CONNECT_DOWNLOAD
 tar zxvf $CONNECT_DOWNLOAD
 rm $CONNECT_DOWNLOAD
 $CONNECT_BIN --readyfile $READY_FILE \
-  --verbose \
   --tunnel-identifier $TRAVIS_JOB_NUMBER \
   -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY &
 
