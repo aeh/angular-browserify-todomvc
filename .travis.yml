@@ -10,4 +10,4 @@ env:
     - BROWSER_PROVIDER_READY_FILE=/tmp/sauce-connect-ready
 
 before_script:
-  - sh ./bin/sauce_connect_setup.sh
+  - bash ./bin/sauce_connect_setup.sh

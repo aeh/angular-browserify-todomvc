@@ -34,7 +34,7 @@ if [ ! -z "$BROWSER_PROVIDER_READY_FILE" ]; then
 fi
 
 # Start
-echo "Starting Sauce Connect in the background"
+echo "Starting Sauce Connect in the background with args: $ARGS"
 sauce-connect/bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -v $ARGS &
 
 # Wait for Connect to be ready before exiting
