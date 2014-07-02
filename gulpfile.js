@@ -27,8 +27,7 @@ gulp.task('default', ['dev']);
 // build task
 gulp.task('build', ['static', 'styles', 'browserify']);
 
-// dev task
-gulp.task('dev', ['lint', 'build', 'test', 'watch'], function() {
+gulp.task('server', function() {
   // setup and start an express server
   var server = express();
   server.use(livereload({ port: livereloadport }));
@@ -40,6 +39,9 @@ gulp.task('dev', ['lint', 'build', 'test', 'watch'], function() {
   // start live reload server
   lrserver.listen(livereloadport);
 });
+
+// dev task
+gulp.task('dev', ['lint', 'build', 'test', 'server', 'watch']);
 
 // jshint task
 gulp.task('lint', function() {
