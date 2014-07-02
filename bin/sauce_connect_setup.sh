@@ -1,5 +1,7 @@
 #!/bin/bash
 
+set -e
+
 # Setup and start Sauce Connect for your TravisCI build
 # This script requires your .travis.yml to include the following two private env variables:
 # SAUCE_USERNAME
@@ -10,21 +12,30 @@
 # before_script:
 #   - ./bin/sauce_connect_setup.sh
 
-CONNECT_URL="https://saucelabs.com/downloads/sc-4.3-linux.tar.gz"
+CONNECT_URL="https://d2nkw87yt5k0to.cloudfront.net/downloads/sc-latest-linux.tar.gz"
 CONNECT_DIR="/tmp/sauce-connect-$RANDOM"
-CONNECT_DOWNLOAD="sc-4.3-linux.tar.gz"
-CONNECT_BIN="./sc-4.3-linux/bin/sc"
-READY_FILE="connect-ready-$RANDOM"
+CONNECT_DOWNLOAD="sc-latest-linux.tar.gz"
 
-# Get connect and start it
+# Get connect
 mkdir -p $CONNECT_DIR
 cd $CONNECT_DIR
-curl $CONNECT_URL > $CONNECT_DOWNLOAD
-tar zxvf $CONNECT_DOWNLOAD
+curl $CONNECT_URL -o $CONNECT_DOWNLOAD 2> /dev/null 1> /dev/null
+mkdir sauce-connect
+tar --extract --file=$CONNECT_DOWNLOAD --strip-components=1 --directory=sauce-connect > /dev/null
 rm $CONNECT_DOWNLOAD
-$CONNECT_BIN --readyfile $READY_FILE \
-  --tunnel-identifier $TRAVIS_JOB_NUMBER \
-  -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY &
+
+ARGS=""
+# Set tunnel-id only on Travis, to make local testing easier.
+if [ ! -z "$TRAVIS_JOB_NUMBER" ]; then
+    ARGS="$ARGS --tunnel-identifier $TRAVIS_JOB_NUMBER"
+fi
+if [ ! -z "$BROWSER_PROVIDER_READY_FILE" ]; then
+  ARGS="$ARGS --readyfile $BROWSER_PROVIDER_READY_FILE"
+fi
+
+# Start
+echo "Starting Sauce Connect in the background"
+sauce-connect/bin/sc -u $SAUCE_USERNAME -k $SAUCE_ACCESS_KEY -v $ARGS &
 
 # Wait for Connect to be ready before exiting
 while [ ! -f $READY_FILE ]; do
