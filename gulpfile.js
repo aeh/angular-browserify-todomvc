@@ -84,7 +84,8 @@ gulp.task('static', function() {
 });
 
 gulp.task('webdriver_update', webdriver_update);
-gulp.task('test', function(cb) {
+gulp.task('test', ['webdriver_update', 'test_only'])
+gulp.task('test_only', function(cb) {
   // setup and start express test server
   var app = express();
   app.use(express.static('./dist'));
