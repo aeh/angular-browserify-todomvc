@@ -18,7 +18,8 @@ var embedlr = require('gulp-embedlr'),
     express = require('express'),
     livereload = require('connect-livereload'),
     livereloadport = 35729,
-    serverport = process.env.PORT || 3000;
+    serverport = process.env.PORT || 3000,
+    test_serverport = process.env.TEST_PORT || 0;
 
 // dev default
 gulp.task('default', ['dev']);
@@ -91,7 +92,7 @@ gulp.task('test', function(cb) {
     res.sendfile('index.html', { root: 'dist' });
   });
   var server = require('http').createServer(app);
-  server.listen(0);
+  server.listen(test_serverport);
 
   function cleanup() {
     server.close();
