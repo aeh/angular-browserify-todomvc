@@ -2,7 +2,7 @@ var expect = require('expect.js'),
     todoItems = require('./helpers/todoItems'),
     page = require('./helpers/page');
 
-describe('Editing', function() {
+xdescribe('Editing', function() {
   it('should hide other controls when editing', function() {
     page.enterItems(todoItems);
     page.doubleClickItemAtIndex(1);

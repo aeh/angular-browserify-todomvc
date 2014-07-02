@@ -45,7 +45,7 @@ describe('Item', function() {
     });
   });
 
-  it('should allow me to edit an item', function() {
+  xit('should allow me to edit an item', function() {
     page.enterItems(todoItems);
     page.doubleClickItemAtIndex(1);
 
